@@ -1,4 +1,4 @@
-# ```diff GIT```
+# GIT
 
 ### Branch:
 * Create local branch:	
