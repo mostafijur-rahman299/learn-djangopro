@@ -1,6 +1,6 @@
 # GIT
 ## Branch:
-```
+```git
 **Create local branch:	
 	git branch branch_name
 **Create local branch and checkout:
