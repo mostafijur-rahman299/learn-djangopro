@@ -21,8 +21,8 @@ or
 ```git merge branch_name```
 
 ### Commit:
-```-m for message```
-```--amend rewrite last commit```
+```-m``` for message
+```--amend``` rewrite last commit
 * Show commited content
 ```git show commit_hash```
 * Soft reset change rekha back a jaoa
@@ -42,7 +42,6 @@ or
 ``` git stash ```
 ```git stash list```
 ```git stash apply or pop```
-```
 
 * Delete all untrack file:
 ```git clean -f```
