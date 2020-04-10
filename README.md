@@ -40,7 +40,7 @@
 	if happy with those updates,the merge
 ```
 
-# Stash:
+### Stash:
 ```
 jodi kono file temporary vabe safe korte hoi tahola stash bebohar korta hoi
 **git stash
