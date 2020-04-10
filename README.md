@@ -27,7 +27,7 @@ or
 * Soft reset change rekha back a jaoa```git reset --soft commit_hash```
 * Hard reset change falai dea back a jaoa```git reset --hard commit_hash```
 
-### pull
+### Pull & Fetch
 * update local repo from the remote but don't merge```git fetch```
 * after downloading the updates, let's see the difference```git diff master origin/master```
 * if happy with those updates,the merge```git pull```
