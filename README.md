@@ -1,5 +1,5 @@
 # GIT
-## Branch:
+### Branch:
 ```
 **Create local branch:	
 	git branch branch_name
@@ -20,7 +20,7 @@
 **Merge locally
 	git merge branch_name
 ```
-## Commit:
+### Commit:
 ```
 ** -m for message
 ** --amend rewrite last commit
