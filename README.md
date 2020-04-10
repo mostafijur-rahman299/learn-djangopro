@@ -1,7 +1,7 @@
 # GIT
 ### Branch:
 ```
-**Create local branch:	
+* Create local branch:	
 	git branch branch_name
 **Create local branch and checkout:
 	git checkout -b branch_name
