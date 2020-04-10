@@ -1,11 +1,11 @@
 # GIT
-### Branch:
-```
-** Create local branch:	
-	git branch branch_name
-**Create local branch and checkout:
-	git checkout -b branch_name
-**Create remote branch:
+## Branch:
+
+* Create local branch:	
+```git branch branch_name```
+* Create local branch and checkout:
+```git checkout -b branch_name```
+* Create remote branch:
 	git push remote_name branch_name
 **Delete remote branch:
 	git push remote_name --delete branch_name
@@ -19,7 +19,7 @@
 	git branch -m new_branch_name
 **Merge locally
 	git merge branch_name
-```
+
 ### Commit:
 ```
 ** -m for message
