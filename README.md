@@ -5,4 +5,4 @@ very large projects with speed and efficiency
 ```
 * [difference between git and github](docs/git.md#difference_between_git_and_github)
 * [commit](docs/git.md#commit)
-* [pull & fetch](docs/git.md#pull & fetch)
+* [pull & fetch](docs/git.md#pull%20&%20fetch)
