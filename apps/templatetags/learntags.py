@@ -5,6 +5,3 @@ register = template.Library()
 @register.filter
 def learntags(value, arg):
 	return value + str(arg)
-
-
-
