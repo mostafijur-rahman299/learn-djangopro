@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}{{ block.super }}-templates{% endblock title %}
+{% block content %}
+<style type="text/css">
+	.fs{
+		color: red;
+	}
+</style>
+<div class="container">
+	{% for obj in queryset %}
+	
+		<!-- <li class="{% cycle 'fs' '' %}">{{ obj }}</li> -->
+		<!-- {{ obj.description|length }}<br> -->
+		<!-- {{ obj.name|filesizeformat }} only for number  -->
+		<!-- {# Hello World #} comment -->
+		<!-- {{ obj.description|safe }} -->
+		<!-- {{ forloop.revcounter }} -->
+		<!-- {{ forloop.last }} -->
+		<!-- {% lorem 13 w %} -->
+		<!-- {% now "jS F Y H:i" %} -->
+		<!-- {{ obj.created_at|timesince }} -->
+		<!-- {{ obj.created_at|naturalday }} -->
+
+	{% empty %}
+		<p>Not Found</p>
+	{% endfor %}
+	{% include 'apps/form.html' with btn_title="submit" %}
+
+	<!-- {{ value|urlencode:"" }} -->
+
+
+	{{ 1|apnumber }}
+	{{ 4500000|intcomma }}
+	{{ 1200000|intword }}
+	{{ 3|ordinal }}
+
+
+</div>
+{% endblock content %}
