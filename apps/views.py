@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import LearnTemplate
+from django.template.response import TemplateResponse
 
 
 def learn_template_view(request):
@@ -9,3 +10,5 @@ def learn_template_view(request):
 		'value': 'https://www.example.org/foo?a=b&c=d'
 	}
 	return render(request, "apps/learn_templates.html", context)
+
+
