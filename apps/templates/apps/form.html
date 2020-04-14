@@ -3,9 +3,15 @@
 <form action="" type="post">
 	<label for="name">Name</label>
 	<input type="text" class="form-control"name="name">
-	<input type="submit" class="btn btn-danger" value="{{ btn_title }}">
+	<input type="submit" class="btn btn-danger" value="{% if btn_title %}{{ btn_title }}{% else %}Submit{% endif %}">
 </form>
 
 <!-- custom context processor tags -->
 {{ name }}
 {{ roll }}
+
+<br>
+
+{{ mix_title }}
+
+
