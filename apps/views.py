@@ -35,8 +35,13 @@ class LearnMixin2(object):
 
 	def form_invalid(self, form):
 		pass
-		
+
 
 class LearnListView(LoginRequiredMixin, LearnMixin, ListView):
+	model = LearnTemplate
+	template_name = "apps/form.html"
+
+
+class LearnDetailView(LoginRequiredMixin, LearnMixin, DetailView):
 	model = LearnTemplate
 	template_name = "apps/form.html"
