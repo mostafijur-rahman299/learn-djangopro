@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.template.response import TemplateResponse
 from django.contrib.auth.decorators import user_passes_test
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import LearnTemplate
