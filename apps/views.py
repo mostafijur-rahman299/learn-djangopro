@@ -45,3 +45,10 @@ class LearnListView(LoginRequiredMixin, LearnMixin, ListView):
 class LearnDetailView(LoginRequiredMixin, LearnMixin, DetailView):
 	model = LearnTemplate
 	template_name = "apps/form.html"
+
+# custom 404 and 500 errors
+def handler404(request):
+    return render(request, '404.html', {})
+
+def handler500(request):
+    return render(request, '500.html', {})
