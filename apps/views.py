@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.response import TemplateResponse
 from django.contrib.auth.decorators import user_passes_test
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import LearnTemplate
+from .models import LearnTemplate, Photo
 from apps.decorator import is_usersuper
+from .forms import PhotoForm
 
 
 def is_active(user):
@@ -52,3 +53,16 @@ def handler404(request):
 
 def handler500(request):
     return render(request, '500.html', {})
+
+
+def photo_list(request):
+    photos = Photo.objects.all()
+    if request.method == 'POST':
+        form = PhotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = PhotoForm()
+    return render(request, 'apps/photo_list.html', {'form': form, 'photos': photos})
+    

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}{{ block.super }}-Crope Image{% endblock title %}
+{% block content %}
+
+  <!-- FORM TO UPLOAD THE IMAGES -->
+  <form method="post" enctype="multipart/form-data" id="formUpload">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" class="btn btn-outline-danger" name="form-submit">
+  </form>
+
+  <!-- MODAL TO CROP THE IMAGE -->
+  <div class="modal fade" id="modalCrop">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="" id="image" style="max-width: 100%;">
+        </div>
+        <div class="modal-footer">
+          <div class="btn-group pull-left" role="group">
+            <button type="button" class="btn btn-default js-zoom-in">
+              <span class="glyphicon glyphicon-zoom-in">ZoomIn</span>
+            </button>
+            <button type="button" class="btn btn-default js-zoom-out">
+              <span class="glyphicon glyphicon-zoom-out">ZoomOut</span>
+            </button>
+          </div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
+          <button type="button" class="btn btn-primary js-crop-and-upload">Crop image</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

@@ -41,3 +41,10 @@ class LearnTemplate(models.Model):
 			output_size = (300, 300)
 			img.thumbnail(output_size)
 			img.save(self.image.path)
+
+
+# Crop and reduce image 
+class Photo(models.Model):
+    file = models.ImageField()
+    description = models.CharField(max_length=255, blank=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
