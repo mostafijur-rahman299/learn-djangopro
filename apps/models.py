@@ -1,6 +1,7 @@
 from django.db import models
 
 from PIL import Image
+from phonenumber_field.modelfields import PhoneNumberField
 
 class LearnTemplateQueryset(models.QuerySet):
 	def latest_two(self):
@@ -23,6 +24,7 @@ class LearnTemplateManager(models.Manager):
 
 class LearnTemplate(models.Model):
 	name = models.CharField(max_length=120)
+	mobile_number = PhoneNumberField(blank=True, default="+88")
 	description = models.TextField()
 	image = models.ImageField(upload_to="%d-%m-%y/", blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
@@ -36,11 +38,12 @@ class LearnTemplate(models.Model):
 	# reduce image size
 	def save(self, *args, **kwargs):
 		super().save(*args, **kwargs)
-		img = Image.open(self.image.path)
-		if img.height > 300 or img.width > 300:
-			output_size = (300, 300)
-			img.thumbnail(output_size)
-			img.save(self.image.path)
+		if self.image:
+			img = Image.open(self.image.path)
+			if img.height > 300 or img.width > 300:
+				output_size = (300, 300)
+				img.thumbnail(output_size)
+				img.save(self.image.path)
 
 
 # Crop and reduce image 
