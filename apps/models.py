@@ -1,7 +1,8 @@
 from django.db import models
-
+from simple_history.models import HistoricalRecords
 from PIL import Image
 from phonenumber_field.modelfields import PhoneNumberField
+
 
 class LearnTemplateQueryset(models.QuerySet):
 	def latest_two(self):
@@ -29,6 +30,7 @@ class LearnTemplate(models.Model):
 	image = models.ImageField(upload_to="%d-%m-%y/", blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+	history = HistoricalRecords()
 
 	objects = LearnTemplateManager()
 
