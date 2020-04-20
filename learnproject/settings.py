@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'phonenumber_field',
     'simple_history',
-
+    "geoposition",
     # custom apps
     'apps'
 ]
@@ -141,4 +141,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media-storage')
 
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY="AIzaSyADz-j-YnpdlL-FLfEyDyvHgq6qpUG0UWY"
+
+
 

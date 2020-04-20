@@ -1,7 +1,16 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from simple_history.models import HistoricalRecords
 from PIL import Image
 from phonenumber_field.modelfields import PhoneNumberField
+from geoposition.fields import GeopositionField
+
+
+def validate_image(image):
+	file_size = image.file.size
+	limit_mb = 10 * 1024 * 1024
+	if file_size > limit_mb:
+	 	raise ValidationError("Maximum size of file is 10 mb")
 
 
 class LearnTemplateQueryset(models.QuerySet):
@@ -26,8 +35,9 @@ class LearnTemplateManager(models.Manager):
 class LearnTemplate(models.Model):
 	name = models.CharField(max_length=120)
 	mobile_number = PhoneNumberField(blank=True, default="+88")
+	# position = GeopositionField()
 	description = models.TextField()
-	image = models.ImageField(upload_to="%d-%m-%y/", blank=True, null=True)
+	image = models.FileField(upload_to="%d-%m-%y/", blank=True, null=True, validators=[validate_image])
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	history = HistoricalRecords()
