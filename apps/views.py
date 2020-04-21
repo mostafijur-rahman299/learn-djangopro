@@ -1,4 +1,6 @@
+import requests
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.template.response import TemplateResponse
 from django.contrib.auth.decorators import user_passes_test
 from django.views.generic import ListView, DetailView
@@ -64,5 +66,13 @@ def photo_list(request):
             return redirect('/')
     else:
         form = PhotoForm()
+    response = requests.get('http://127.0.0.1:8000/apps/learn-api/')
+    print(response.status_code)
     return render(request, 'apps/photo_list.html', {'form': form, 'photos': photos})
     
+
+def requests_test(requests):
+	data = {
+		'test': 'Hello world'
+	}
+	return JsonResponse(data)

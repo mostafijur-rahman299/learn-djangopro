@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'simple_history',
     "geoposition",
+    'import_export',
     # custom apps
     'apps'
 ]
@@ -142,5 +143,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media-storage')
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY="AIzaSyADz-j-YnpdlL-FLfEyDyvHgq6qpUG0UWY"
 
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
