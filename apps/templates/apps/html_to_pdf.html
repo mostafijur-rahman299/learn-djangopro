@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}{{ block.super }}-pdf{% endblock title %}
+{% block content %}
+<div class="container">
+  <h1 style="color: red;text-align: center;">Hello Html to Pdf</h1>
+	<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for obj in qs %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ obj.name }}</td>
+      <td>{{ obj.mobile_number }}</td>
+      <td>{{ obj.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock content %}

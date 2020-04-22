@@ -1,4 +1,4 @@
-import requests
+import requests, datetime
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
 from django.template.response import TemplateResponse
@@ -6,6 +6,10 @@ from django.contrib.auth.decorators import user_passes_test
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from tablib import Dataset
+from io import BytesIO
+from xhtml2pdf import pisa
+from django.template.loader import get_template
+from django.template import Context
 
 from .models import LearnTemplate, Photo
 from apps.decorator import is_usersuper
@@ -109,5 +113,31 @@ def import_new_data(request):
 		learntemplate_resources.import_data(dataset, raise_errors=True, dry_run=False)
 	return redirect("learn-template")
 
+# Render pdf
+def render_to_pdf(template_src, context_dict):
+    template = get_template(template_src)
+    html  = template.render(context_dict)
+    result = BytesIO()
+    # pdf name generate with date    
+    date = datetime.date.today()
+    tmpName = template_src.split('.')[0]
+    pdfName=tmpName + "-"+ str(date)
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+        response = HttpResponse(result.getvalue(), content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename='+pdfName+'.pdf'        
+        return response
+    return HttpResponse('We had some errors')
 
 
+def learn_pdf(request):
+    qs = LearnTemplate.objects.all()
+    context = {
+        'qs': qs,
+        } 
+    pdf = render_to_pdf("apps/html_to_pdf.html", context)
+    download = request.GET.get('download')
+    if download:
+        return pdf 
+    return HttpResponse(pdf, content_type='application/pdf')
+    

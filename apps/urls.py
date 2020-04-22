@@ -7,7 +7,8 @@ from .views import (learn_template_view,
 	requests_test,
 	export_csv,
 	export_excel,
-	import_new_data)
+	import_new_data,
+	learn_pdf)
 from django.conf.urls import handler404, handler500
 
 urlpatterns = [
@@ -18,6 +19,7 @@ urlpatterns = [
 	path('export-csv/', export_csv, name="export-csv"),
 	path('export-excel/', export_excel, name="export-excel"),
 	path('import-data/', import_new_data, name="import-data"),
+	path('download-pdf/', learn_pdf, name="download-pdf"),
 ]
 
 handler404 = handler404

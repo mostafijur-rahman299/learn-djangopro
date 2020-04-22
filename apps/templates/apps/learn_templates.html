@@ -51,13 +51,15 @@
 	    {% csrf_token %}
 	    <label for="file format">File Format</label>
 	    <select name="file_format">
-			<option value="csv">Csv</option>
-			<option value="excel">Excel</option>
+			<option value='csv'>Csv</option>
+			<option value='excel'>Excel</option>
 		</select>
 
-	    <input type="file" name="import_file" required="True">
-	    <button type="submit" class="btn btn-primary">Import File</button>
+	    <input type='file' name="import_file" required="True">
+	    <button type='submit' class="btn btn-primary">Import File</button>
   	</form>
 
+  	<a href="{% url 'download-pdf' %}?download=1" class="btn btn-info">Download pdf</a>
+  	
 </div>
 {% endblock content %}
