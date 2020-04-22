@@ -1,8 +1,7 @@
 ### Difference between git and github
 ```
-The key difference between Git and GitHub is that Git is an open-source tool developers install locally 
-to manage source code, while GitHub is an online service to which developers who use Git can connect 
-and upload or download resources.
+Git hossa open-source version control system, GitHub hossa online service jekhana developer Git connect 
+kora project upload, download kortapare.
 ```
 
 ### Branch:
