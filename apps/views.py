@@ -1,14 +1,16 @@
 import requests
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.template.response import TemplateResponse
 from django.contrib.auth.decorators import user_passes_test
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from tablib import Dataset
 
 from .models import LearnTemplate, Photo
 from apps.decorator import is_usersuper
 from .forms import PhotoForm
+from .resources import LearnTemplateResource
 
 
 def is_active(user):
@@ -76,3 +78,36 @@ def requests_test(requests):
 		'test': 'Hello world'
 	}
 	return JsonResponse(data)
+
+
+def export_csv(request):
+	learn_template_resources = LearnTemplateResource()
+	qs = LearnTemplate.objects.all()
+	dataset = learn_template_resources.export(qs)
+	response = HttpResponse(dataset.csv, content_type='text/csv')
+	response['Content-Disposition'] = 'attachment; filename="learntemplate.csv"'
+	return response 
+
+def export_excel(request):
+	learn_template_resources = LearnTemplateResource()
+	qs = LearnTemplate.objects.all()
+	dataset = learn_template_resources.export(qs)
+	response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+	response['Content-Disposition'] = 'attachment; filename="learntemplate.xls"'
+	return response
+
+def import_new_data(request):
+	if request.method == 'POST':
+		import_file = request.FILES.get('import_file')
+		file_format = request.POST.get('file_format')
+		learntemplate_resources = LearnTemplateResource()
+		dataset = Dataset()
+		if file_format == 'excel':
+			imported_file = dataset.load(import_file.read())
+		if file_format == 'csv':
+			imported_file = dataset.load(import_file.read().decode('utf-8'), format='csv')
+		learntemplate_resources.import_data(dataset, raise_errors=True, dry_run=False)
+	return redirect("learn-template")
+
+
+

@@ -39,7 +39,25 @@
 	{{ request.current_time }}
 	{{ request.current_name }}
 	{{ request.response_time }}
+	<br><br>
 
+	<!-- export csv and excel -->
+	<a href="{% url 'export-csv' %}" class="btn btn-outline-danger">Export CSV</a>
+	<a href="{% url 'export-excel' %}" class="btn btn-outline-danger">Export Excel</a>
+
+	<br><br>
+
+	<form action="{% url 'import-data' %}" method="post" enctype="multipart/form-data">
+	    {% csrf_token %}
+	    <label for="file format">File Format</label>
+	    <select name="file_format">
+			<option value="csv">Csv</option>
+			<option value="excel">Excel</option>
+		</select>
+
+	    <input type="file" name="import_file" required="True">
+	    <button type="submit" class="btn btn-primary">Import File</button>
+  	</form>
 
 </div>
 {% endblock content %}
