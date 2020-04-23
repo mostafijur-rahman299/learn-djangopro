@@ -7,3 +7,9 @@ Git hossa free open source distributed version control system.
 * [pull & fetch](docs/git.md#pull--fetch)
 * [branch](docs/git.md#branch)
 * [stash](docs/git.md#stash)
+# Rest API
+```
+Rest Api (Representational State Transfer Application Programming Interface).ati kono kisur obosta akti 
+representation(url) er maddhoma client to server othoba server to client transfer kora.
+ati network aplication design er jonno architectural style.
+```
