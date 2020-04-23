@@ -32,9 +32,8 @@ poroborti request a browser sessionid cookie send kora abong data retrive kora.
 ```
 # Cache
 ```
-caching akti prokkria jar maddhoma data temporary vabe website, browser, othoba app a save kora.caching application 
-ka faster abong more efficient kora, karon data golo ka locally stored kora hoi.jemon- jodi kono user website first time 
-visit kora tahola user er browser tar information dharon kora abong poroborti request a user efficiently website ti access
-korta parba.
-tahola 
+caching akti process jar maddhoma data temporary vabe website, browser, othoba app a save kora.caching 
+application ka faster abong more efficient kora, karon data gulo ka locally stored kora hoi.jemon- jodi 
+kono user website first time visit kora tahola user er browser tar information dharon kora abong poroborti 
+request a user efficiently website ti access korta parba.
 ```
