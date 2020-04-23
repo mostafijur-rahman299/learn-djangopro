@@ -13,3 +13,8 @@ Rest Api (Representational State Transfer Application Programming Interface).ati
 representation(url) er maddhoma client to server othoba server to client transfer kora.
 ati network aplication design er jonno architectural style.
 ```
+# HttpResponse vs JsonResponse
+```
+HttpResponse serve kora text/html content.JsonResponse serve kora aplication/json content.JsonResponse
+HttpResponse er subclass.
+```
