@@ -35,7 +35,7 @@ class LearnTemplateManager(models.Manager):
 class LearnTemplate(models.Model):
 	name = models.CharField(max_length=120)
 	mobile_number = PhoneNumberField(blank=True, default="+88")
-	# position = GeopositionField()
+	position = GeopositionField()
 	description = models.TextField(blank=True, null=True)
 	image = models.FileField(upload_to="%d-%m-%y/", blank=True, null=True, validators=[validate_image])
 	created_at = models.DateTimeField(auto_now_add=True)
