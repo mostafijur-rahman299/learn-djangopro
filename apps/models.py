@@ -36,7 +36,7 @@ class LearnTemplate(models.Model):
 	name = models.CharField(max_length=120)
 	mobile_number = PhoneNumberField(blank=True, default="+88")
 	# position = GeopositionField()
-	description = models.TextField()
+	description = models.TextField(blank=True, null=True)
 	image = models.FileField(upload_to="%d-%m-%y/", blank=True, null=True, validators=[validate_image])
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
@@ -50,6 +50,7 @@ class LearnTemplate(models.Model):
 	# reduce image size
 	def save(self, *args, **kwargs):
 		super().save(*args, **kwargs)
+		self.description = "hello world"
 		if self.image:
 			img = Image.open(self.image.path)
 			if img.height > 300 or img.width > 300:

@@ -10,6 +10,7 @@ from io import BytesIO
 from xhtml2pdf import pisa
 from django.template.loader import get_template
 from django.template import Context
+from django.urls import reverse
 
 from .models import LearnTemplate, Photo
 from apps.decorator import is_usersuper
