@@ -52,4 +52,10 @@ $(function () {
     $("#modalCrop").modal("hide");
   });
 
+
+
+  // TRANSLATORS: COMMAND-> django-admin makemessages -d djangojs -l bn
+  console.log(gettext("Hello World"))
+  alert(gettext("Welcome to our english to bangla translated site!"))
+
 });

@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls.i18n import i18n_patterns
+from django.views.i18n import JavaScriptCatalog
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings 
@@ -21,8 +22,10 @@ from django.conf.urls.static import static
 
 
 urlpatterns = i18n_patterns(
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('admin/', admin.site.urls),
     path('apps/', include('apps.urls')),
+
 
     # prefix_default_language=False
 )
