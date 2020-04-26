@@ -4,13 +4,14 @@ from simple_history.models import HistoricalRecords
 from PIL import Image
 from phonenumber_field.modelfields import PhoneNumberField
 from geoposition.fields import GeopositionField
+from django.utils.translation import gettext_lazy as _
 
 
 def validate_image(image):
 	file_size = image.file.size
 	limit_mb = 10 * 1024 * 1024
 	if file_size > limit_mb:
-	 	raise ValidationError("Maximum size of file is 10 mb")
+	 	raise ValidationError(_("Maximum size of file is 10 mb"))
 
 
 class LearnTemplateQueryset(models.QuerySet):
@@ -33,7 +34,7 @@ class LearnTemplateManager(models.Manager):
 
 
 class LearnTemplate(models.Model):
-	name = models.CharField(max_length=120)
+	name = models.CharField(max_length=120, help_text=_("Your name must have to be unique!"))
 	mobile_number = PhoneNumberField(blank=True, default="+88")
 	position = GeopositionField()
 	description = models.TextField(blank=True, null=True)

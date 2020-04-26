@@ -11,6 +11,9 @@ from xhtml2pdf import pisa
 from django.template.loader import get_template
 from django.template import Context
 from django.urls import reverse
+from django.utils import translation
+from django.utils.translation import gettext as _
+from django.utils.translation import ngettext
 
 from .models import LearnTemplate, Photo
 from apps.decorator import is_usersuper
@@ -24,10 +27,30 @@ def is_active(user):
 @user_passes_test(is_active)
 @is_usersuper
 def learn_template_view(request):
+	if 'lang' in request.GET:
+		translation.activate(request.GET.get('lang'))
 	qs = LearnTemplate.objects.all()
+	title = _("Hello, how are you?")
+	date = datetime.datetime.now()
+	month = _(date.strftime("%B"))
+	day = _(date.strftime("%A"))
+	today = _("Today is  %(month)s %(day)s") %{'day':day, 'month':month}
+
+	count = 1
+	if count == 1:
+		name = _("man")
+	else:
+		name = _("mans")
+	text = ngettext(
+    	'There is %(count)d %(name)s available.',
+    	'There are %(count)d %(name)s available.',count) % {'count': count,'name': name}
+
 	context = {
 		'queryset': qs,
-		'value': 'https://www.example.org/foo?a=b&c=d'
+		'value': 'https://www.example.org/foo?a=b&c=d',
+		'title': title,
+		'today': today,
+		'page': text
 	}
 	return render(request, "apps/learn_templates.html", context)
 

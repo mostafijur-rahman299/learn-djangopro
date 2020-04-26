@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
     # custom middleware 
     'apps.middleware.LearnMiddleware'
@@ -144,6 +145,10 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media-storage')
 
+# TRANSLATION 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "locale"),
+)
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY="AIzaSyADz-j-YnpdlL-FLfEyDyvHgq6qpUG0UWY"
 

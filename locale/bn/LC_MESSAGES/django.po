@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-26 09:30+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\apps\models.py:14
+msgid "Maximum size of file is 10 mb"
+msgstr "ফাইলের সর্বোচ্চ আকার 10 এমবি"
+
+#: .\apps\models.py:37
+msgid "Your name must have to be unique!"
+msgstr "আপনার নামটি অবশ্যই অনন্য হতে হবে!"
+
+#: .\apps\views.py:33
+msgid "Hello, how are you?"
+msgstr "হ্যালো, আপনি কেমন আছেন?"
+
+#: .\apps\views.py:37
+#, python-format
+msgid "Today is  %(month)s %(day)s"
+msgstr "আজকে %(month)s %(day)s"
+
+#: .\apps\views.py:41
+msgid "man"
+msgstr ""
+
+#: .\apps\views.py:43
+msgid "mans"
+msgstr ""
+
+#: .\apps\views.py:45
+#, python-format
+msgid "There is %(count)d %(name)s available."
+msgid_plural "There are %(count)d %(name)s available."
+msgstr[0] "এখানে %(count)d %(name)s সহজলভ্য"
+msgstr[1] "এখানে %(count)d %(name)s সহজলভ্য"
