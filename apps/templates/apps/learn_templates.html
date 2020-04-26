@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load humanize %}
 {% load learntags %}
+{% load i18n %}
 {% block title %}{{ block.super }}-templates{% endblock title %}
 {% block content %}
 <style type="text/css">
@@ -49,22 +50,35 @@
 
 	<form action="{% url 'import-data' %}" method="post" enctype="multipart/form-data">
 	    {% csrf_token %}
-	    <label for="file format">File Format</label>
+	    <label for="file format">{% trans "File Format" %}</label>
 	    <select name="file_format">
-			<option value='csv'>Csv</option>
-			<option value='excel'>Excel</option>
+			<option value='csv'>{% trans "Csv" %}</option>
+			<option value='excel'>{% trans "Excel" %}</option>
 		</select>
 
 	    <input type='file' name="import_file" required="True">
-	    <button type='submit' class="btn btn-primary">Import File</button>
+	    <button type='submit' class="btn btn-primary">{% trans 'Import File' %}</button>
   	</form>
 
-  	<a href="{% url 'download-pdf' %}?download=1" class="btn btn-info">Download pdf</a>
+  	<a href="{% url 'download-pdf' %}?download=1" class="btn btn-info">{% trans 'Download pdf' %}</a>
   	<br><br>
-  	{{ title }}
-  	<br>
-  	{{ today }}
-  	<br>
-  	{{ page }}
+
+  	{{ title }}<br>{{ today }}<br>{{ page }}
+
+
+  	{% trans "how" as  race%}
+  	<a href="/" title="{% blocktrans %}Back to '{{ race }}' homepage{% endblocktrans %}">{{ race }}</a>
+  	{% blocktrans with amount="700" trimmed  %} 
+		That will cost $ {{ amount }}.
+	{% endblocktrans %}
+
+
+	{% get_current_language as lang %}
+	<h1>{{ lang }}</h1>
+
+	{% get_available_languages as langs %}
+	<h5>{{ langs }}</h5>
+
+  	
 </div>
 {% endblock content %}

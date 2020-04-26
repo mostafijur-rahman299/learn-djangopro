@@ -14,6 +14,7 @@ from django.urls import reverse
 from django.utils import translation
 from django.utils.translation import gettext as _
 from django.utils.translation import ngettext
+from django.utils.translation import pgettext
 
 from .models import LearnTemplate, Photo
 from apps.decorator import is_usersuper
@@ -44,13 +45,12 @@ def learn_template_view(request):
 	text = ngettext(
     	'There is %(count)d %(name)s available.',
     	'There are %(count)d %(name)s available.',count) % {'count': count,'name': name}
-
 	context = {
 		'queryset': qs,
 		'value': 'https://www.example.org/foo?a=b&c=d',
 		'title': title,
 		'today': today,
-		'page': text
+		'page': text,
 	}
 	return render(request, "apps/learn_templates.html", context)
 

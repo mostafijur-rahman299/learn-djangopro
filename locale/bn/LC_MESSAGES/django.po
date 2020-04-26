@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-26 09:30+0600\n"
+"POT-Creation-Date: 2020-04-26 14:16+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,26 +25,72 @@ msgstr "ফাইলের সর্বোচ্চ আকার 10 এমবি
 msgid "Your name must have to be unique!"
 msgstr "আপনার নামটি অবশ্যই অনন্য হতে হবে!"
 
-#: .\apps\views.py:33
+#: .\apps\templates\apps\learn_templates.html:53
+msgid "File Format"
+msgstr "ফাইলের বিন্যাস"
+
+#: .\apps\templates\apps\learn_templates.html:55
+msgid "Csv"
+msgstr "CSV ফাইল"
+
+#: .\apps\templates\apps\learn_templates.html:56
+msgid "Excel"
+msgstr "Excel ফাইল"
+
+#: .\apps\templates\apps\learn_templates.html:60
+msgid "Import File"
+msgstr "ফাইল আমদানি করুন"
+
+#: .\apps\templates\apps\learn_templates.html:63
+msgid "Download pdf"
+msgstr "পিডিএফ ডাউনলোড করুন"
+
+#: .\apps\templates\apps\learn_templates.html:69
+msgid "how"
+msgstr "কেমন"
+
+#: .\apps\templates\apps\learn_templates.html:70
+#, python-format
+msgid "Back to '%(race)s' homepage"
+msgstr "আবার '%(race)s' হোমপেজে"
+
+#: .\apps\templates\apps\learn_templates.html:71
+#, fuzzy, python-format
+msgid "That will cost $ %(amount)s."
+msgstr "যে ব্যয় হবে $ %(amount)s.\n"
+
+#: .\apps\views.py:34
 msgid "Hello, how are you?"
 msgstr "হ্যালো, আপনি কেমন আছেন?"
 
-#: .\apps\views.py:37
+#: .\apps\views.py:38
 #, python-format
 msgid "Today is  %(month)s %(day)s"
 msgstr "আজকে %(month)s %(day)s"
 
-#: .\apps\views.py:41
+#: .\apps\views.py:42
 msgid "man"
-msgstr ""
+msgstr "মানুষ"
 
-#: .\apps\views.py:43
+#: .\apps\views.py:44
 msgid "mans"
-msgstr ""
+msgstr "মানুষ"
 
-#: .\apps\views.py:45
+#: .\apps\views.py:46
 #, python-format
 msgid "There is %(count)d %(name)s available."
 msgid_plural "There are %(count)d %(name)s available."
 msgstr[0] "এখানে %(count)d %(name)s সহজলভ্য"
 msgstr[1] "এখানে %(count)d %(name)s সহজলভ্য"
+
+#: .\templates\admin\base_site.html:24
+msgid "Documentation"
+msgstr "নথিপত্র"
+
+#: .\templates\admin\base_site.html:28
+msgid "Change password"
+msgstr "পাসওয়ার্ড পরিবর্তন করুন"
+
+#: .\templates\admin\base_site.html:30
+msgid "Log out"
+msgstr "প্রস্থান"
