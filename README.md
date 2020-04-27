@@ -37,3 +37,27 @@ application ka faster abong more efficient kora, karon data gulo ka locally stor
 kono user website first time visit kora tahola user er browser tar information dharon kora abong poroborti 
 request a user efficiently website ti access korta parba.
 ```
+
+## Learning Another List With VaidTech
+* django template
+* django custom context processor
+* middleware
+* custom decorator
+* mixin
+* custom model manager
+* custom queryset
+* django query
+* django custom 404 and 500
+* image croping
+* image size validators
+* phonenumber_field
+* django_geoposition
+* simple-history
+* python decouple
+* python requests library
+* import/export with django-import-export package
+* django html --> pdf
+* django custom management command
+* django postgress integration
+* cronjob
+* django test
