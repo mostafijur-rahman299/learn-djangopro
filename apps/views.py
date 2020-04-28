@@ -28,8 +28,6 @@ def is_active(user):
 @user_passes_test(is_active)
 @is_usersuper
 def learn_template_view(request):
-	if 'lang' in request.GET:
-		translation.activate(request.GET.get('lang'))
 	qs = LearnTemplate.objects.all()
 	title = _("Hello, how are you?")
 	date = datetime.datetime.now()
@@ -78,6 +76,13 @@ class LearnListView(LoginRequiredMixin, LearnMixin, ListView):
 class LearnDetailView(LoginRequiredMixin, LearnMixin, DetailView):
 	model = LearnTemplate
 	template_name = "apps/form.html"
+
+def learn_detail(request, id):
+	context = {
+		'obj': LearnTemplate.objects.get(id=id)
+	}
+	return render(request, 'apps/form.html', context)	
+
 
 # custom 404 and 500 errors
 def handler404(request):

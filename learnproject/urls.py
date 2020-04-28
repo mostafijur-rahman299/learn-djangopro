@@ -22,9 +22,10 @@ from django.conf.urls.static import static
 
 
 urlpatterns = i18n_patterns(
-    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('admin/', admin.site.urls),
     path('apps/', include('apps.urls')),
+    path('learn-api/', include('apps.api.urls')),
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
 
 
     # prefix_default_language=False

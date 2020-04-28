@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'simple_history',
     "geoposition",
     'import_export',
+    'rest_framework',
     # custom apps
     'apps'
 ]
@@ -154,3 +155,12 @@ GEOPOSITION_GOOGLE_MAPS_API_KEY="AIzaSyADz-j-YnpdlL-FLfEyDyvHgq6qpUG0UWY"
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+FILE_UPLOAD_HANDLERS = ["django.core.files.uploadhandler.MemoryFileUploadHandler",
+ "django.core.files.uploadhandler.TemporaryFileUploadHandler"]
