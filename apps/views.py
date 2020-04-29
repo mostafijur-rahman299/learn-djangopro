@@ -1,5 +1,5 @@
 import requests, datetime
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse, HttpResponse
 from django.template.response import TemplateResponse
 from django.contrib.auth.decorators import user_passes_test
@@ -15,11 +15,16 @@ from django.utils import translation
 from django.utils.translation import gettext as _
 from django.utils.translation import ngettext
 from django.utils.translation import pgettext
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework import permissions, status
+from rest_framework.response import Response
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import LearnTemplate, Photo
 from apps.decorator import is_usersuper
 from .forms import PhotoForm
 from .resources import LearnTemplateResource
+from apps.api.serializers import LearnTemplateSerializer
 
 
 def is_active(user):
@@ -170,3 +175,49 @@ def learn_pdf(request):
         return pdf 
     return HttpResponse(pdf, content_type='application/pdf')
     
+@csrf_exempt    
+@api_view(['POST', 'GET'])
+@permission_classes((permissions.AllowAny,))
+def learn_template_list(request):
+	if request.method == 'GET':
+		learn_object = LearnTemplate.objects.all()
+		serializer = LearnTemplateSerializer(learn_object, many=True)
+		return Response(serializer.data)
+
+	elif request.method == 'POST':
+		serializer = LearnTemplateSerializer(data=request.data)
+		if serializer.is_valid():
+			serializer.save()
+			return Response(serializer.data, status=status.HTTP_201_CREATED)
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST', 'GET'])
+@permission_classes((permissions.AllowAny,))
+def learn_template_list(request):
+	if request.method == 'GET':
+		learn_object = LearnTemplate.objects.all()
+		serializer = LearnTemplateSerializer(learn_object, many=True)
+		return Response(serializer.data)
+
+	elif request.method == 'POST':
+		serializer = LearnTemplateSerializer(data=request.data)
+		if serializer.is_valid():
+			serializer.save()
+			return Response(serializer.data, status=status.HTTP_201_CREATED)
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)	
+
+@api_view(['GET', 'PATCH', 'DELETE'])
+@permission_classes((permissions.AllowAny,))		
+def learn_template_detail(request, id):
+	obj = get_object_or_404(LearnTemplate, pk=id)
+	if request.method == 'GET':
+		serializer = LearnTemplateSerializer(obj)
+		return Response(serializer.data)
+	if request.method == 'PATCH':
+		serializer = LearnTemplateSerializer(obj, data=request.data, partial=True)
+		if serializer.is_valid():
+			learntemplate = serializer.save()
+			return Response(LearnTemplateSerializer(obj).data)
+	if request.method == 'DELETE':
+		obj.delete()
+		return Response(status=status.HTTP_204_NO_CONTENT)

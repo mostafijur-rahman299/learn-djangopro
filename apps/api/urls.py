@@ -7,3 +7,6 @@ router = DefaultRouter()
 router.register(r'objects', LearnTemplateModelViewSet, basename='learn-api')
 
 urlpatterns = router.urls
+
+
+
