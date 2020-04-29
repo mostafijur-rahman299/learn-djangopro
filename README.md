@@ -61,3 +61,9 @@ request a user efficiently website ti access korta parba.
 * django postgress integration
 * cronjob
 * django test
+* django translation
+* ModelSerializer
+* ModelViewSet
+* @api_view
+* django_filter with drf
+* pagination
