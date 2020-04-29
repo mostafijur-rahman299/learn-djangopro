@@ -59,7 +59,7 @@ request a user efficiently website ti access korta parba.
 * django html --> pdf
 * django custom management command
 * django postgress integration
-* cronjob
+* cronjob/Task Scheduler
 * django test
 * django translation
 * ModelSerializer
