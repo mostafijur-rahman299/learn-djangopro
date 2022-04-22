@@ -21,7 +21,7 @@ openpyxl==3.0.3
 phonenumbers==8.12.1
 Pillow==7.1.1
 pyPdf==1.13
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 python-decouple==3.3
 pytz==2019.3
 PyYAML==5.3.1
